@@ -39,7 +39,7 @@ function HelloWorld(robot) {
                 msg.send("you don't have any card on development");
             }
             for (var i = 0; i < card_to_move.length; i++) {
-                msg.send("moving cards back to Paused list");
+                msg.send("moving cards to Paused list");
                 msg.send("moving card: " + card_to_move[i].name);
                 httpClient({
                     uri: "https://api.trello.com/1/cards/" + card_to_move[i].id + "/idList?value=" + paused_list_id + "&key=" + key + "&token=" + token,
@@ -55,7 +55,7 @@ function HelloWorld(robot) {
             msg.send("error while loading cards on development list");
         });
     });
-    robot.hear(/back?(.*)/i, function (msg) {
+    robot.hear(/I'm back?(.*)/i, function (msg) {
         var username = msg.match[1].trim();
         httpClient({
             uri: "https://api.trello.com/1/lists/" + paused_list_id + "/cards?key=" + key + "&token=" + token + "&members=true",

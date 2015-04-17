@@ -19,9 +19,7 @@
 
 function HelloWorld(robot: any) {
 	robot.hear(/brb?(.*)/i, (msg: any) => {
-		msg.send("starting");
 		var username = msg.match[1].trim();
-		msg.send(username);
 		
 		var options = {
 			uri: "https://api.trello.com/1/lists/" + in_development_list_id + "/cards?key=" + key + "&token=" + token + "&members=true",
@@ -46,7 +44,7 @@ function HelloWorld(robot: any) {
 				}
 				for(var i = 0; i < card_to_move.length; i++){
 
-					msg.send("moving cards back to Paused list");
+					msg.send("moving cards to Paused list");
 					msg.send("moving card: " + card_to_move[i].name);
 					httpClient({
 						uri: "https://api.trello.com/1/cards/" + card_to_move[i].id + 
@@ -67,7 +65,7 @@ function HelloWorld(robot: any) {
 			});
 	});
 
-	robot.hear(/back?(.*)/i, (msg: any) => {
+	robot.hear(/I'm back?(.*)/i, (msg: any) => {
 		var username = msg.match[1].trim();
 		httpClient({
 			uri: "https://api.trello.com/1/lists/" + paused_list_id + "/cards?key=" + key + "&token=" + token + "&members=true",
