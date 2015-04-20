@@ -28,10 +28,19 @@
 			"http://open.spotify.com/track/2Q73wKbwLLcGS404gkTfjH",
 			exorcismoVaginal
 		];
+		var happyBirthday = "https://open.spotify.com/track/66geAKf15gnNqTTuOJCN2u";
 function Satanize(robot: any) {
 	robot.respond(/satanize/i, (msg: any) => {
-		msg.send("Armageddon Comes!")
-		msg.send(listOfSongs[Math.floor(Math.random() * listOfSongs.length)]);
+		var date = new Date();
+		
+		if(date.getDate() === 20 && date.getMonth === 3){
+			msg.send("Search For Jesus!")
+			msg.send(happyBirthday);
+		}
+		else{
+			msg.send("Armageddon Comes!")
+			msg.send(listOfSongs[Math.floor(Math.random() * listOfSongs.length)]);
+		}
 	});
 
 	robot.hear(/te estan buscando matador/i, (msg: any) => {
