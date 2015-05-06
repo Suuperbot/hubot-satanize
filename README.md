@@ -6,4 +6,4 @@ Want to terrorize your chat channels? I know you do.
 
 hubot satanize
 
-You will get a link of a nice song on spotify
+You will get a link of a nice song on spotify.
